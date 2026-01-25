@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            border-radius: 50%;
+            background-color: orange;
+            width: 100px;
+            height: 100px;
+            margin: 25% auto;
+            text-align: center;
+            transition: 1s;
+        }
+
+        button:hover{
+            color: azure;
+            rotate: 360deg;
+        }
+
+        #otto:hover{
+            animation: slideAndFlip 1s ease-in-out;
+        }
+
+        @keyframes slideAndFlip{
+            0%{transform: translate(0px) rotateY(0deg);}
+            50%{transform: translate(250px) rotateY(45deg);}
+            75%{transform: translate(-100px) scale(2);}
+            100%{transform: 500px rotateY() ;}
+
+        }
+
+    </style>
+</head>
+<body>
+    <img src="otto">
+</body>
+</html>
