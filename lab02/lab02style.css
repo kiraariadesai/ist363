@@ -6,7 +6,8 @@ body{
     border-radius: 30px;
 }
 
-h1{color: #0A3981;
+h1{
+    color: #0A3981;
 }
 
 .content{
@@ -15,6 +16,8 @@ h1{color: #0A3981;
     border-radius: 10px;
     margin: 20px;
     padding: 1% 10%;
+    perspective: 1000px; 
+    text-align: left; 
 }
 
 .p{
@@ -41,14 +44,17 @@ img{
     min-width: 250px;
 }
 
-.slideAndFlip{animation: slideAndFlip 5s ease-in;
-    transform-origin: center center;}
+.slideAndFlip{
+    animation: slideAndFlip 5s ease-in;
+    transform-origin: center center;
+    display: inline-block; /* ADD THIS - makes centering work properly */
+}
 
 @keyframes slideAndFlip{
-    0%{transform: translateY(-400px);}
-    30% {transform: translateY(0);}
-    60% {transform: translateY(0) rotateY(1080deg);}
-    80% {transform: translateY(0) rotateY(1080deg) scale(1.5);}
-    100% {transform: translateY(0) rotateY(1080deg) scale(1);}
+    0%{transform: translateY(-400px) translateX(0) rotateY(0deg);}
+    30%{transform: translateY(0) translateX(0) rotateY(0deg);}
+    60%{transform: translateY(0) translateX(0) rotateY(1080deg);}
+    80%{transform: translateY(0) translateX(0) rotateY(1080deg) scale(1.5);}
+    100%{transform: translateY(0) translateX(0) rotateY(1080deg) scale(1);}
 }
 
