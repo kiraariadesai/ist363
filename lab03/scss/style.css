@@ -1,5 +1,6 @@
 body {
   font-family: Arial, sans-serif;
+  margin: 0;
 }
 
 img {
@@ -11,7 +12,7 @@ a {
   text-decoration: none;
 }
 
-.sidebar .sidebar-recipes .sidebar-card, .older-recipes .recipe-grid .recipe-card, .latest-recipes .recipe-grid .recipe-card {
+.older-recipes .recipe-grid .recipe-card, .latest-recipes .recipe-grid .recipe-card {
   background: #ffffff;
   border-radius: 10px;
   overflow: hidden;
@@ -22,12 +23,13 @@ a {
 
 header {
   background: #e89b6a;
-  padding: 20px 0;
+  padding: 20px;
+  margin: 0;
 }
 header h1 {
   color: #ffffff;
   text-align: center;
-  margin-bottom: 20px;
+
 }
 header nav {
   display: flex;
@@ -38,9 +40,6 @@ header nav {
 header nav a {
   color: #ffffff;
   transition: color 0.3s ease;
-}
-header nav a:hover {
-  color: #2b2b2b;
 }
 
 .latest-recipes {
@@ -58,16 +57,19 @@ header nav a:hover {
 .latest-recipes .recipe-grid .recipe-card img {
   width: 100%;
   height: auto;
+  border-radius: 8px;
 }
 .latest-recipes .recipe-grid .recipe-card h3 {
   color: #e2625c;
   margin-top: 15px;
+  border-radius: 8px;
 }
 
 .newsletter {
   background: #e4fdc3;
   padding: 40px;
   text-align: center;
+  border-radius: 8px;
 }
 .newsletter .newsletter-icon {
   display: flex;
@@ -77,6 +79,7 @@ header nav a:hover {
 }
 .newsletter .newsletter-icon img {
   width: 80px;
+  border-radius: 8px;
 }
 .newsletter p {
   margin-bottom: 20px;
@@ -103,9 +106,6 @@ header nav a:hover {
   background: #e89b6a;
   color: #ffffff;
 }
-.newsletter form button:hover {
-  background: rgb(225.1802325581, 125.3488372093, 61.8197674419);
-}
 
 .about {
   padding: 40px;
@@ -114,6 +114,7 @@ header nav a:hover {
 .about img {
   width: 100%;
   margin-bottom: 30px;
+  border-radius: 8px;
 }
 .about h2 {
   color: #e2625c;
@@ -138,55 +139,40 @@ header nav a:hover {
 .older-recipes h2 {
   color: #e2625c;
   margin-bottom: 30px;
+  border-radius: 8px;
 }
 .older-recipes .recipe-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
+  border-radius: 8px;
 }
 .older-recipes .recipe-grid .recipe-card img {
   width: 100%;
+  border-radius: 8px;
 }
 .older-recipes .recipe-grid .recipe-card h3 {
   color: #e2625c;
   margin-top: 15px;
+  border-radius: 8px;
 }
 
 footer {
   background: #8ae2c8;
+  width: 100%;
   padding: 30px;
   text-align: center;
+  margin: 0;
 }
 footer p {
-  margin-bottom: 15px;
+  color: #ffffff;
 }
 footer .footer-links {
-  display: flex;
   justify-content: center;
   gap: 20px;
 }
 footer .footer-links a {
   color: #ffffff;
-}
-
-.sidebar {
-  background: #2b2b2b;
-  color: #ffffff;
-  padding: 30px;
-}
-.sidebar h3 {
-  color: #e89b6a;
-  margin-bottom: 20px;
-}
-.sidebar .sidebar-recipes .sidebar-card {
-  margin-bottom: 20px;
-}
-.sidebar .sidebar-recipes .sidebar-card img {
-  width: 100%;
-}
-.sidebar .sidebar-recipes .sidebar-card p {
-  color: #e2625c;
-  margin-top: 10px;
 }
 
 @media (max-width: 768px) {
