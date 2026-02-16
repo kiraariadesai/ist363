@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <svg class="camera-logo" viewBox="0 0 100 100" fill="white">
+                    <circle cx="50" cy="50" r="35" fill="none" stroke="white" stroke-width="3"/>
+                    <circle cx="50" cy="50" r="25" fill="none" stroke="white" stroke-width="3"/>
+                    <circle cx="50" cy="50" r="15" fill="none" stroke="white" stroke-width="3"/>
+                    <circle cx="50" cy="50" r="5" fill="white"/>
+                </svg>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#shop">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section" id="portfolio">
+        <div class="container">
+            <h2 class="portfolio-title">Portfolio</h2>
+            <div class="portfolio-grid">
+                <!-- Row 1 -->
+                <div class="portfolio-item">
+                    <img src="images/blue-flower-5158746_1280.jpg" alt="Blue Iris Flower">
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/mountain.jpg" alt="Snowy Mountain Lake">
+                </div>
+                <div class="portfolio-item large">
+                    <img src="images/clouds-3353159_1280.jpg" alt="Dramatic Sky Clouds">
+                </div>
+
+                <!-- Row 2 -->
+                <div class="portfolio-item">
+                    <img src="images/architecture-1868667_1280.jpg" alt="City Night Skyline">
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/lake-8763490_1280.jpg" alt="Lake with Sailboats">
+                </div>
+
+                <!-- Row 3 -->
+                <div class="portfolio-item">
+                    <img src="images/plum-2679782_1280.jpg" alt="Blueberries">
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/snow-7658399_1280.jpg" alt="Blue Wavy Pattern">
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/blue-eryngo-7319904_1280.jpg" alt="Blue Thistle Flowers">
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/art-2578353_1280.jpg" alt="Blue Art Supplies">
+                </div>
+            </div>
+            <a href="#" class="btn-see-more">See More</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2 class="about-title">About the Artist</h2>
+            <p class="about-description">Capturing moments through the lens, my passion is bringing emotions to life in every frame.</p>
+            <a href="#" class="btn-read-more">Read More</a>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
