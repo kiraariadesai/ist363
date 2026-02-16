@@ -1,0 +1,112 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Header - dark grey */
+.navbar {
+    background-color: #343a40;
+    padding: 1rem 0;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    padding-left: 1.5rem;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #fff;
+}
+
+.camera-logo {
+    width: 40px;
+    height: 40px;
+    color: #fff;
+}
+
+/* Portfolio Section - white background */
+.portfolio-section {
+    padding: 4rem 0;
+    background-color: #fff;
+}
+
+.portfolio-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: #000;
+}
+
+.portfolio-item {
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.05);
+}
+
+.btn-see-more {
+    padding: 0.75rem 2.5rem;
+    font-weight: 500;
+}
+
+/* About Section */
+.about-section {
+    padding: 5rem 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.about-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #000;
+}
+
+.about-description {
+    font-size: 1rem;
+    color: #000;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-read-more {
+    padding: 0.75rem 2.5rem;
+    font-weight: 500;
+    border: 1px solid #6c757d;
+    color: #212529;
+}
+
+.btn-read-more:hover {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .portfolio-title {
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+    }
+
+    .about-section {
+        padding: 3rem 1rem;
+    }
+
+    .about-title {
+        font-size: 1.5rem;
+    }
+}
