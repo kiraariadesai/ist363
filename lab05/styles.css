@@ -14,9 +14,6 @@ body {
     padding-left: 1.5rem;
 }
 
-.navbar-dark .navbar-nav .nav-link:hover {
-    color: #fff;
-}
 
 .camera-logo {
     width: 40px;
@@ -38,10 +35,10 @@ body {
     color: #000;
 }
 
-/* 3 columns: row1 [flower][clouds span 2x2], row2 [lake][clouds], row3 [arch][snow][plum], row4 [eryngo][art] */
+/* 4 columns: row1 [flower][mountain][clouds 2x2], row2 [city][sailboats][clouds], row3 [plums][snow][thistle][art] */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 0.75rem;
 }
 
@@ -51,7 +48,7 @@ body {
 }
 
 .portfolio-item--span-4 {
-    grid-column: 2 / 4;
+    grid-column: 3 / 5;
     grid-row: 1 / 3;
     aspect-ratio: auto;
     min-height: 0;
@@ -66,11 +63,6 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.portfolio-item:hover img {
-    transform: scale(1.05);
 }
 
 .btn-see-more {
@@ -108,11 +100,6 @@ body {
     color: #212529;
 }
 
-.btn-read-more:hover {
-    background-color: #6c757d;
-    border-color: #6c757d;
-    color: #fff;
-}
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -122,7 +109,7 @@ body {
 
     .portfolio-item--span-4 {
         grid-column: 1;
-        grid-row: 2 / 4;
+        grid-row: auto;
         aspect-ratio: 2;
     }
 
