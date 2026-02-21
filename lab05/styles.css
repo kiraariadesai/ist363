@@ -2,7 +2,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
-/* Header - dark grey */
+
 .navbar {
     background-color: #343a40;
     padding: 1rem 0;
@@ -21,7 +21,7 @@ body {
     color: #fff;
 }
 
-/* Portfolio Section - white background */
+
 .portfolio-section {
     padding: 4rem 0;
     background-color: #fff;
@@ -35,7 +35,7 @@ body {
     color: #000;
 }
 
-/* 4 columns: row1 [flower][mountain][clouds 2x2], row2 [city][sailboats][clouds], row3 [plums][snow][thistle][art] */
+
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -70,7 +70,7 @@ body {
     font-weight: 500;
 }
 
-/* About Section */
+
 .about-section {
     padding: 5rem 0;
     background-color: #fff;
