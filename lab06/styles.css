@@ -12,7 +12,7 @@ body {
     padding-right: 15px;
 }
 
-/* Navbar – navy */
+
 .navbar {
     background-color: #152058;
     padding: 1rem 0;
@@ -35,7 +35,7 @@ body {
     color: #fff;
 }
 
-/* Page heading – blue */
+
 .page-heading {
     font-size: 2rem;
     font-weight: 700;
@@ -43,7 +43,6 @@ body {
     margin: 0;
 }
 
-/* Carousel – 100% width, about half height */
 .carousel-section {
     padding: 0 0 2rem;
 }
@@ -61,7 +60,7 @@ body {
     border-radius: 4px;
 }
 
-/* Section headings – blue */
+
 .section-heading {
     font-size: 1.75rem;
     font-weight: 700;
@@ -74,7 +73,7 @@ body {
     vertical-align: middle;
 }
 
-/* Customer Reviews – light blue background */
+
 .reviews-section {
     background-color: #d4e4f0;
     padding: 0;
@@ -103,7 +102,6 @@ body {
     letter-spacing: 0.05em;
 }
 
-/* FAQs – accordion */
 .faq-section {
     background-color: #fff;
 }
@@ -128,7 +126,6 @@ body {
     color: #000;
 }
 
-/* Get in Touch – light blue background */
 .contact-section {
     background-color: #fff;
 }
@@ -168,7 +165,7 @@ body {
     border-color: #3d4248;
 }
 
-/* Footer – navy */
+
 .footer {
     background-color: #152058;
     padding: 12px;
@@ -182,7 +179,7 @@ body {
     padding-right: 15px;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
     .container {
         padding-left: 15px;
