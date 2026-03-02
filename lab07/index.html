@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let favNumber=5;
+        console.log("My favorite number is " + favNumber + ".")
+
+        let favoriteFoods = ["pizza", "tacos", "sushi", "burgers"];
+
+        console.log(favoriteFoods[1]);
+
+        favoriteFoods.push("pasta");
+
+        console.log(favoriteFoods);  
+
+        for (let i = 0; i < favoriteFoods.length; i++) {
+        console.log("Favorite Food " + (i + 1) + ": " + favoriteFoods[i]);
+    }
+
+        for (let i = 0; i < favoriteFoods.length; i++) {
+        if (i !== 1) {
+            console.log("Favorite Food " + (i + 1) + ": " + favoriteFoods[i]);
+        }
+    }
+
+
+    let book = {
+        title: "The Hunger Games",
+        author: "Suzanne Collins",
+        yearPublished: 2008,
+        isAvailable: true
+    };
+
+
+    console.log("Title: " + book.title);
+    console.log("Author: " + book.author);
+
+
+    if (book.isAvailable) {
+        console.log("This book is available for checkout.");
+    } else {
+        console.log("Sorry, this book is currently checked out.");
+    }
+
+    let num = 0;
+
+    while (num <= 20) {
+        console.log(num);
+        num += 2;
+    }
+
+    let dieRoll = Math.floor(Math.random() * 6) + 1;
+    console.log("You rolled a " + dieRoll);
+    </script>
+</body>
+</html>
