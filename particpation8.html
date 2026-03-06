@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participaation8</title>
+</head>
+<body>
+    <h1>Dog Years Calculator</h1>
+
+    <input id="dogAge" placeholder="Enter dog's age here">
+    <button onclick="calculate()">Calculate</button>
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+            let age = document.querySelector("#dogAge").value;
+            document.querySelector("#result").innerText = "Human years: " + age * 7;
+        }
+    </script>
+
+</body>
+
+</body>
+</html>
