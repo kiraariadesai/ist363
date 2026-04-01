@@ -32,7 +32,7 @@ async function loadWeather() {
     console.error(err);
     if (precipEl) precipEl.textContent = '—';
     if (tempEl) tempEl.textContent = '—';
-    if (emojiEl) emojiEl.textContent = '☀️';
+    if (emojiEl) emojiEl.textContent = '-';
   }}
 
 document.addEventListener('DOMContentLoaded', loadWeather);
