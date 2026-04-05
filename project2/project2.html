@@ -245,7 +245,7 @@
 
     async function fetchEmissions(country) {
       const response = await fetch(
-        `https://api.worldbank.org/v2/country/${country.code}/indicator/EN.ATM.CO2E.PC?format=json&mrv=5`
+        `https://api.worldbank.org/v2/country/${country.code}/indicator/EN.ATM.CO2E.PC?format=json&date=2015:2021&mrv=10`
       );
       if (!response.ok) throw new Error(`Failed to fetch data for ${country.name}`);
       const data = await response.json();
