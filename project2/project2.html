@@ -190,12 +190,12 @@
       <p class="loading">Loading country data...</p>
     </div>
 
-    <!-- API 2: Website Carbon API -->
-  <h2>THE CARBON COST OF BROWSING FAST FASHION</h2>
-  <p>Every time you visit a fast fashion website, your device uses energy — and that has a carbon cost. Here's how much CO₂ is generated per page visit.</p>
-  <div id="carbon-section">
-    <p class="loading">Loading carbon data...</p>
-  </div>
+   <!-- API 2: World Bank API -->
+    <h2>CO₂ EMISSIONS IN TEXTILE-PRODUCING COUNTRIES</h2>
+    <p>The countries that manufacture our clothes are among the most affected by industrial carbon emissions. All data sourced from the World Bank.</p>
+    <div id="worldbank-section">
+      <p class="loading">Loading emissions data...</p>
+    </div>
 
   </main>
 
@@ -254,32 +254,43 @@
     loadCountries();
 
 
-    const fastFashionSites = ["shein.com", "hm.com", "zara.com"];
+    const wbCountries = [
+      { code: "BGD", name: "Bangladesh" },
+      { code: "CHN", name: "China" },
+      { code: "IND", name: "India" },
+      { code: "VNM", name: "Vietnam" },
+    ];
 
-    async function fetchCarbon(site) {
-      const response = await fetch(`https://api.websitecarbon.com/site?url=${site}`);
-      if (!response.ok) throw new Error(`Failed to fetch ${site}`);
+    async function fetchEmissions(country) {
+      const response = await fetch(
+        `https://api.worldbank.org/v2/country/${country.code}/indicator/EN.ATM.CO2E.PC?format=json&mrv=1`
+      );
+      if (!response.ok) throw new Error(`Failed to fetch data for ${country.name}`);
       const data = await response.json();
-      return { site, co2: data.statistics.co2.grid.grams.toFixed(2) };
+      const value = data[1]?.[0]?.value;
+      return {
+        name: country.name,
+        co2: value ? value.toFixed(2) : "N/A"
+      };
     }
 
-    async function loadCarbonData() {
-      const section = document.getElementById("carbon-section");
+    async function loadEmissionsData() {
+      const section = document.getElementById("worldbank-section");
       try {
-        const results = await Promise.all(fastFashionSites.map(fetchCarbon));
+        const results = await Promise.all(wbCountries.map(fetchEmissions));
         section.innerHTML = "";
         results.forEach(result => {
           const p = document.createElement("p");
-          p.innerHTML = `🌐 <strong>${result.site}</strong> — ${result.co2}g of CO₂ per page visit`;
+          p.innerHTML = `🏭 <strong>${result.name}</strong> — ${result.co2} metric tons of CO₂ per capita`;
           section.appendChild(p);
         });
       } catch (error) {
-        section.innerHTML = `<p class="error-msg">Could not load carbon data. Please try again later.</p>`;
+        section.innerHTML = `<p class="error-msg">Could not load emissions data. Please try again later.</p>`;
         console.error("Error:", error);
       }
     }
 
-    loadCarbonData();
+    loadEmissionsData();
   </script>
 
 </body>
