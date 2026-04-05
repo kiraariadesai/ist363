@@ -162,9 +162,9 @@
   <header>
     <h1>SHOP CLEAN SAVE YOUR GREEN</h1>
     <nav>
-      <a href="home.html">HOME</a>
-      <a href="nowwhat.html">NOW WHAT?</a>
-      <a href="timetorevamp.html">TIME TO REVAMP</a>
+      <a href="">HOME</a>
+      <a href="">NOW WHAT?</a>
+      <a href="">TIME TO REVAMP</a>
     </nav>
   </header>
 
@@ -178,9 +178,9 @@
     <p>According to <a href="https://earth.org">earth.org</a>, more than $500 billion are lost yearly due to garment waste, 20% of global wastewater comes from textile dyeing, and fast fashion generated more carbon emissions than aviation and shipping combined in 2022.</p>
 
     <div class="intro-images">
-      <img src="https://kiraariadesai.github.io/ist263/images/thriftshop.jpeg" alt="Thrift shop with clothes and decor." />
-      <img src="https://kiraariadesai.github.io/ist263/images/textilewaste.jpeg" alt="Textile waste." />
-      <img src="https://kiraariadesai.github.io/ist263/images/sweatshop.jpeg" alt="Sweatshop workers." />
+      <img src="images/thriftshop.jpeg" alt="Thrift shop with clothes and decor." />
+      <img src="images/textilewaste.jpeg" alt="Textile waste." />
+      <img src="images/sweatshop.jpeg" alt="Sweatshop workers." />
     </div>
 
     <!-- API 1: REST Countries -->
@@ -190,12 +190,12 @@
       <p class="loading">Loading country data...</p>
     </div>
 
-    <!-- API 2: Carbon Interface (placeholder) -->
-    <h2>THE CARBON COST OF FAST FASHION</h2>
-    <p>Fast fashion doesn't just cost money — it costs the planet. Carbon data coming soon.</p>
-    <div id="carbon-section">
-      <p class="loading">Carbon data will appear here once your API key is set up.</p>
-    </div>
+    <!-- API 2: Website Carbon API -->
+  <h2>THE CARBON COST OF BROWSING FAST FASHION</h2>
+  <p>Every time you visit a fast fashion website, your device uses energy — and that has a carbon cost. Here's how much CO₂ is generated per page visit.</p>
+  <div id="carbon-section">
+    <p class="loading">Loading carbon data...</p>
+  </div>
 
   </main>
 
@@ -208,6 +208,7 @@
 
   <!-- JAVASCRIPT: REST Countries API -->
   <script>
+    const CARBON_API_KEY = "your-api-key-here";
     const fashionCountries = [
       { name: "Bangladesh", context: "World's 2nd largest garment exporter. Over 4 million workers in textile factories." },
       { name: "China",      context: "Produces ~65% of the world's clothing. Home to Shein and Temu supply chains." },
@@ -251,6 +252,34 @@
     }
 
     loadCountries();
+
+
+    const fastFashionSites = ["shein.com", "hm.com", "zara.com"];
+
+    async function fetchCarbon(site) {
+      const response = await fetch(`https://api.websitecarbon.com/site?url=${site}`);
+      if (!response.ok) throw new Error(`Failed to fetch ${site}`);
+      const data = await response.json();
+      return { site, co2: data.statistics.co2.grid.grams.toFixed(2) };
+    }
+
+    async function loadCarbonData() {
+      const section = document.getElementById("carbon-section");
+      try {
+        const results = await Promise.all(fastFashionSites.map(fetchCarbon));
+        section.innerHTML = "";
+        results.forEach(result => {
+          const p = document.createElement("p");
+          p.innerHTML = `🌐 <strong>${result.site}</strong> — ${result.co2}g of CO₂ per page visit`;
+          section.appendChild(p);
+        });
+      } catch (error) {
+        section.innerHTML = `<p class="error-msg">Could not load carbon data. Please try again later.</p>`;
+        console.error("Error:", error);
+      }
+    }
+
+    loadCarbonData();
   </script>
 
 </body>

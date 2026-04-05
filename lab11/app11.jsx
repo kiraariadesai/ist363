@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createRoot } from "react-dom/client";
 
 function App() {
 
@@ -42,5 +43,4 @@ function App() {
   );
 }
 
-
-
+createRoot(document.getElementById("root")).render(<App />);
