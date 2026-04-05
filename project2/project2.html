@@ -112,7 +112,6 @@
       line-height: 1.5;
     }
 
-    /* LOADING / ERROR */
     .loading {
       color: #7a9e7e;
       font-style: italic;
@@ -125,7 +124,6 @@
       border-radius: 4px;
     }
 
-    /* RESPONSIVE */
     @media (max-width: 600px) {
       .intro-images {
         flex-direction: column;
@@ -143,6 +141,8 @@
     }
   </style>
 </head>
+
+
 <body>
 
   <a href="#content" style="position:absolute; top:-40px;">Skip to Content</a>
@@ -188,7 +188,6 @@
 
 
   <script>
-    const CARBON_API_KEY = "your-api-key-here";
     const fashionCountries = [
       { name: "Bangladesh", context: "World's 2nd largest garment exporter. Over 4 million workers in textile factories." },
       { name: "China",      context: "Produces ~65% of the world's clothing. Home to Shein and Temu supply chains." },
@@ -263,7 +262,7 @@
         section.innerHTML = "";
         results.forEach(result => {
           const p = document.createElement("p");
-          p.innerHTML = `🏭 <strong>${result.name}</strong> — ${result.co2} metric tons of CO₂ per capita`;
+          p.innerHTML = `<strong>${result.name}</strong> — ${result.co2} metric tons of CO₂ per capita`;
           section.appendChild(p);
         });
       } catch (error) {
@@ -274,6 +273,10 @@
 
     loadEmissionsData();
   </script>
+
+  <footer style="background:#1e1e1e; color:#d4c5a9; text-align:center; padding:1.5rem; margin-top:3rem; font-size:0.85rem;">
+  SHOP CLEAN SAVE YOUR GREEN &nbsp;|&nbsp; Kira Aria Desai &nbsp;|&nbsp; IST 363 &nbsp;|&nbsp; Project 2
+  </footer>
 
 </body>
 </html>
