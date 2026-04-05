@@ -125,17 +125,6 @@
       border-radius: 4px;
     }
 
-    /* FOOTER */
-    footer {
-      background-color: #1e1e1e;
-      color: #d4c5a9;
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 3rem;
-      font-size: 0.85rem;
-      line-height: 1.8;
-    }
-
     /* RESPONSIVE */
     @media (max-width: 600px) {
       .intro-images {
@@ -199,13 +188,6 @@
 
   </main>
 
-  <!-- FOOTER -->
-  <footer>
-    <strong>SHOP CLEAN SAVE YOUR GREEN</strong><br />
-    Created by Kira Aria Desai &nbsp;|&nbsp; IST 263 &nbsp;|&nbsp; Project 2<br />
-    Syracuse University
-  </footer>
-
   <!-- JAVASCRIPT: REST Countries API -->
   <script>
     const CARBON_API_KEY = "your-api-key-here";
@@ -263,11 +245,12 @@
 
     async function fetchEmissions(country) {
       const response = await fetch(
-        `https://api.worldbank.org/v2/country/${country.code}/indicator/EN.ATM.CO2E.PC?format=json&mrv=1`
+        `https://api.worldbank.org/v2/country/${country.code}/indicator/EN.ATM.CO2E.PC?format=json&mrv=5`
       );
       if (!response.ok) throw new Error(`Failed to fetch data for ${country.name}`);
       const data = await response.json();
-      const value = data[1]?.[0]?.value;
+      const entry = data[1]?.find(item => item.value !== null);
+      const value = entry?.value;
       return {
         name: country.name,
         co2: value ? value.toFixed(2) : "N/A"
