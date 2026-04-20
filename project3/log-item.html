@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SHOP CLEAN SAVE YOUR GREEN | LOG ITEM</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <a href="#content" style="position:absolute; top:-40px;">Skip to Content</a>
+
+  <header>
+    <h1>SHOP CLEAN SAVE YOUR GREEN</h1>
+    <nav>
+      <a href="index.html">HOME</a>
+      <a href="log-item.html" class="active">LOG ITEM</a>
+      <a href="my-closet.html">MY CLOSET</a>
+    </nav>
+  </header>
+
+  <main id="content">
+
+    <h2>LOG A NEW ITEM</h2>
+    <p>Enter the details about your clothing purchase below. The carbon footprint calculator will use this information to estimate the environmental impact of your item.</p>
+
+    <div class="form-section">
+      <div class="form-group">
+        <label for="item-name">Item Name</label>
+        <input type="text" id="item-name" name="item-name" placeholder="e.g. Black denim jacket" />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="item-type">Item Type</label>
+          <select id="item-type" name="item-type">
+            <option value="">Select a category...</option>
+            <option>Tops</option>
+            <option>Bottoms</option>
+            <option>Outerwear</option>
+            <option>Dress / Jumpsuit</option>
+            <option>Footwear</option>
+            <option>Accessories</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="item-weight">Approx. Weight (grams)</label>
+          <input type="number" id="item-weight" name="item-weight" placeholder="e.g. 300" min="1" />
+          <p class="form-hint">Check the tag or estimate: t-shirt ~200g, jeans ~600g, jacket ~900g</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="brand-name">Brand Name <span style="font-weight:normal; color:#888;">(optional)</span></label>
+        <input type="text" id="brand-name" name="brand-name" placeholder="e.g. Zara, H&M, Levi's, thrift store..." />
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h3 style="margin-top:0; color:#3a5c3a; border-bottom: 1px solid #d4c5a9; padding-bottom:0.5rem; margin-bottom:1rem;">Purchase Information</h3>
+
+      <div class="form-group">
+        <label>Purchase Type</label>
+        <div class="radio-group">
+          <input type="radio" id="type-retail" name="purchase-type" value="retail" checked />
+          <label for="type-retail" class="selected">New / Retail</label>
+
+          <input type="radio" id="type-secondhand" name="purchase-type" value="secondhand" />
+          <label for="type-secondhand">Second-hand / Thrifted</label>
+
+          <input type="radio" id="type-rental" name="purchase-type" value="rental" />
+          <label for="type-rental">Rental</label>
+        </div>
+        <p class="form-hint">Second-hand and rental items have a significantly lower carbon footprint.</p>
+      </div>
+
+      <div class="form-group">
+        <label>Shopping Method</label>
+        <div class="radio-group">
+          <input type="radio" id="method-instore" name="shopping-method" value="instore" checked />
+          <label for="method-instore" class="selected">In-Store</label>
+
+          <input type="radio" id="method-online" name="shopping-method" value="online" />
+          <label for="method-online">Online / Shipped</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="shipping-origin">Shipping Origin <span style="font-weight:normal; color:#888;">(if purchased online)</span></label>
+        <select id="shipping-origin" name="shipping-origin">
+          <option value="">Not applicable / unknown</option>
+          <option>United States (domestic)</option>
+          <option>Bangladesh</option>
+          <option>China</option>
+          <option>India</option>
+          <option>Vietnam</option>
+          <option>Other Asia</option>
+          <option>Europe</option>
+          <option>Other</option>
+        </select>
+        <p class="form-hint">Longer shipping distances add more carbon emissions.</p>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h3 style="margin-top:0; color:#3a5c3a; border-bottom: 1px solid #d4c5a9; padding-bottom:0.5rem; margin-bottom:1rem;">Material Composition</h3>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="material-primary">Primary Material</label>
+          <select id="material-primary" name="material-primary">
+            <option value="">Select material...</option>
+            <option>Cotton</option>
+            <option>Organic Cotton</option>
+            <option>Polyester</option>
+            <option>Recycled Polyester</option>
+            <option>Nylon</option>
+            <option>Wool</option>
+            <option>Linen</option>
+            <option>Silk</option>
+            <option>Rayon / Viscose</option>
+            <option>Denim</option>
+            <option>Synthetic Blend</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="material-pct">% of Primary Material</label>
+          <input type="number" id="material-pct" name="material-pct" placeholder="e.g. 60" min="1" max="100" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="material-secondary">Secondary Material <span style="font-weight:normal; color:#888;">(optional)</span></label>
+          <select id="material-secondary" name="material-secondary">
+            <option value="">None</option>
+            <option>Cotton</option>
+            <option>Polyester</option>
+            <option>Nylon</option>
+            <option>Elastane / Spandex</option>
+            <option>Wool</option>
+            <option>Linen</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="material-secondary-pct">% of Secondary Material</label>
+          <input type="number" id="material-secondary-pct" name="material-secondary-pct" placeholder="e.g. 40" min="0" max="99" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="manufacturing-country">Manufacturing Country <span style="font-weight:normal; color:#888;">(optional — check your tag)</span></label>
+        <select id="manufacturing-country" name="manufacturing-country">
+          <option value="">Unknown</option>
+          <option>Bangladesh</option>
+          <option>China</option>
+          <option>India</option>
+          <option>Vietnam</option>
+          <option>United States</option>
+          <option>Portugal</option>
+          <option>Turkey</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <p>
+      <a href="my-closet.html" class="btn-submit">Calculate &amp; Save to My Closet &rarr;</a>
+    </p>
+
+    <div class="result-box">
+      <h3>Carbon Footprint Result</h3>
+      <p class="loading">Your carbon estimate will appear here once the calculator is built in Project 3.</p>
+    </div>
+
+  </main>
+
+  <footer>
+    SHOP CLEAN SAVE YOUR GREEN &nbsp;|&nbsp; Kira Aria Desai &nbsp;|&nbsp; IST 363 &nbsp;|&nbsp; Project 3
+  </footer>
+
+</body>
+</html>

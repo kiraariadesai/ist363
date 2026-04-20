@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internet Pioneers Bios</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+<div id="directory">
+  <h1>Internet Pioneers Bios</h1>
+  <div class="card-grid" id="card-grid"></div>
+</div>
+
+
+<div id="profile-view">
+  <h1>Internet Pioneers Bios</h1>
+  <div class="profile-card">
+    <div class="profile-card-header">
+      <h2 id="profile-name"></h2>
+    </div>
+    <div class="profile-card-body">
+      <img id="profile-img" src="" alt="">
+      <div class="profile-field">
+        <strong>Age:</strong>
+        <p id="profile-age"></p>
+      </div>
+      <div class="profile-field">
+        <strong>Known For:</strong>
+        <p id="profile-known"></p>
+      </div>
+      <button type="button" class="btn-return" onclick="returnToDirectory()">Return to Directory</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const pioneers = [
+  {
+    id: "feinler",
+    name: "Elizabeth J. Feinler",
+    age: 91,
+    known: "Running the Network Information Center (NIC) for ARPANET, managing the first Internet directory and domain name registry before the modern DNS system existed.",
+    img: "images/ElizabethFeinler-2011.jpg"
+  },
+  {
+    id: "berners-lee",
+    name: "Tim Berners Lee",
+    age: 69,
+    known: "Idnventor of the World Wide Web, the HTML markup language, the URL system, and HTTP With supporting text below as a natural lead-in to additional content.",
+    img: "images/LS3_4919_(cropped).jpg"
+  },
+  {
+    id: "tomlinson",
+    name: "Ray Tomlinson",
+    age: 74,
+    known: "Inventor of email and the person who introduced the @ symbol to separate user names from computer names in email addresses.",
+    img: "images/Ray_Tomlinson.jpg"
+  }
+];
+const visited = new Set();
+
+function buildDirectory() {
+  const grid = document.getElementById('card-grid');
+  grid.innerHTML = '';
+  pioneers.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'pioneer-card' + (visited.has(p.id) ? ' visited' : '');
+    card.innerHTML = `
+      <div class="pioneer-card-image-wrap">
+        <span class="viewed-badge">Viewed</span>
+        <img src="${p.img}" alt="${p.name}">
+      </div>
+      <div class="pioneer-card-name">${p.name}</div>
+    `;
+    card.addEventListener('click', () => openProfile(p));
+    grid.appendChild(card);
+  });
+}
+
+function openProfile(p) {
+  visited.add(p.id);
+  document.getElementById('profile-name').textContent = p.name;
+  document.getElementById('profile-img').src = p.img;
+  document.getElementById('profile-img').alt = p.name;
+  document.getElementById('profile-age').textContent = p.age;
+  document.getElementById('profile-known').textContent = p.known;
+
+  document.getElementById('directory').style.display = 'none';
+  document.getElementById('profile-view').style.display = 'block';
+}
+
+function returnToDirectory() {
+  document.getElementById('profile-view').style.display = 'none';
+  document.getElementById('directory').style.display = 'block';
+  buildDirectory();
+}
+
+buildDirectory();
+</script>
+</body>
+</html>
