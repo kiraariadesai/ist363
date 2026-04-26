@@ -5,28 +5,23 @@ import Footer from '../components/Footer.jsx'
 import { FASHION_COUNTRIES } from '../data/carbonData.js'
 
 export default function Home() {
-  // useState stores the data we get back from the APIs.
-  // It starts empty/loading, then fills in when the fetch completes.
-  const [countries,  setCountries]  = useState([])
-  const [emissions,  setEmissions]  = useState([])
-  const [loadingC,   setLoadingC]   = useState(true)
-  const [loadingE,   setLoadingE]   = useState(true)
-  const [errorC,     setErrorC]     = useState(false)
-  const [errorE,     setErrorE]     = useState(false)
+  const [countries, setCountries] = useState([])
+  const [emissions, setEmissions] = useState([])
+  const [loadingC, setLoadingC] = useState(true)
+  const [loadingE, setLoadingE] = useState(true)
+  const [errorC, setErrorC] = useState(false)
+  const [errorE, setErrorE] = useState(false)
 
-  // useEffect runs the API calls once when the page loads.
-  // The empty [] at the end means "only run once, on mount".
   useEffect(() => {
     fetchCountries()
     fetchEmissions()
   }, [])
 
-  /* ── REST COUNTRIES API ── */
   async function fetchCountries() {
     try {
       const results = await Promise.all(
         FASHION_COUNTRIES.map(async (c) => {
-          const res  = await fetch(`https://restcountries.com/v3.1/name/${c.name}?fullText=true`)
+          const res = await fetch(`https://restcountries.com/v3.1/name/${c.name}?fullText=true`)
           const data = await res.json()
           return { ...data[0], context: c.context }
         })
@@ -39,16 +34,15 @@ export default function Home() {
     }
   }
 
-  /* ── WORLD BANK API ── */
   async function fetchEmissions() {
     try {
       const results = await Promise.all(
         FASHION_COUNTRIES.map(async (c) => {
-          const res  = await fetch(
+          const res = await fetch(
             `https://api.worldbank.org/v2/country/${c.code}/indicator/EN.GHG.CO2.PC.CE.AR5?format=json&mrv=1`
           )
           const data = await res.json()
-          const rows  = Array.isArray(data[1]) ? data[1] : []
+          const rows = Array.isArray(data[1]) ? data[1] : []
           const entry = rows.find(r => r.value != null)
           return { name: c.name, co2: entry?.value?.toFixed(2) ?? 'N/A' }
         })
@@ -96,7 +90,6 @@ export default function Home() {
           <Link to="/log-item" className="btn-submit">Start Tracking Your Closet →</Link>
         </p>
 
-        {/* ── REST COUNTRIES API ── */}
         <h2>FAST FASHION'S GLOBAL IMPACT</h2>
         <p>
           These countries are among the world's largest textile and garment producers, powering
@@ -105,7 +98,7 @@ export default function Home() {
 
         <div id="countries-grid">
           {loadingC && <p className="loading">Loading country data...</p>}
-          {errorC   && <p className="error-msg">Could not load country data. Please try again later.</p>}
+          {errorC && <p className="error-msg">Could not load country data. Please try again later.</p>}
           {countries.map((country) => (
             <div key={country.name.common} className="country-card">
               <img src={country.flags?.png} alt={`Flag of ${country.name.common}`} />
@@ -119,7 +112,6 @@ export default function Home() {
           ))}
         </div>
 
-        {/* ── WORLD BANK API ── */}
         <h2>CO&#8322; EMISSIONS IN TEXTILE-PRODUCING COUNTRIES</h2>
         <p>
           The countries that manufacture our clothes are among the most affected by industrial
@@ -128,7 +120,7 @@ export default function Home() {
 
         <div id="worldbank-section">
           {loadingE && <p className="loading">Loading emissions data...</p>}
-          {errorE   && <p className="error-msg">Could not load emissions data. Please try again later.</p>}
+          {errorE && <p className="error-msg">Could not load emissions data. Please try again later.</p>}
           {emissions.map((e) => (
             <p key={e.name}>
               <strong>{e.name}</strong> &mdash; {e.co2} metric tons of CO&#8322; per capita

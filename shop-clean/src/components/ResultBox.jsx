@@ -5,7 +5,6 @@ export default function ResultBox({ co2, purchaseType, itemData }) {
   const miles = Math.round(co2 / 0.404)
 
   function saveItem() {
-    // Read whatever's already in localStorage, add this item, save back
     const existing = JSON.parse(localStorage.getItem('closet-items') || '[]')
     existing.push({ ...itemData, co2, date: new Date().toLocaleDateString() })
     localStorage.setItem('closet-items', JSON.stringify(existing))
@@ -24,7 +23,6 @@ export default function ResultBox({ co2, purchaseType, itemData }) {
         Roughly equivalent to driving <strong>{miles} miles</strong> in a gas-powered car.
       </p>
 
-      {/* Extra note for second-hand items explaining why the number is low */}
       {purchaseType === 'used' && (
         <div className="secondhand-note">
           <strong>Why so low?</strong> Because this item already existed, no new fabric
@@ -33,7 +31,6 @@ export default function ResultBox({ co2, purchaseType, itemData }) {
         </div>
       )}
 
-      {/* Show what the second-hand version would cost, if they bought new */}
       {purchaseType === 'new' && (
         <p style={{ fontSize: '0.85rem', color: '#555', marginTop: '0.75rem' }}>
           The same item bought second-hand would be roughly{' '}

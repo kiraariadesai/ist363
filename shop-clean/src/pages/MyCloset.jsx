@@ -5,47 +5,33 @@ import Footer from '../components/Footer.jsx'
 import PieChart from '../components/PieChart.jsx'
 
 export default function MyCloset() {
-  // Load items from localStorage into React state
   const [items, setItems] = useState(() => {
     return JSON.parse(localStorage.getItem('closet-items') || '[]')
   })
 
-  // Whenever items changes, save the updated list back to localStorage
   useEffect(() => {
     localStorage.setItem('closet-items', JSON.stringify(items))
   }, [items])
 
-  /* ── DERIVED STATS ──────────────────────────────────────────
-     These are calculated from the items array on every render.
-     No need to store them in state — they're always derived.
-  ─────────────────────────────────────────────────────────── */
-  const totalCO2  = items.reduce((sum, item) => sum + item.co2, 0)
-  const avgCO2    = items.length > 0 ? totalCO2 / items.length : 0
+  const totalCO2 = items.reduce((sum, item) => sum + item.co2, 0)
+  const avgCO2 = items.length > 0 ? totalCO2 / items.length : 0
   const usedCount = items.filter(i => i.purchaseType === 'used').length
-  const usedPct   = items.length > 0 ? Math.round((usedCount / items.length) * 100) : 0
+  const usedPct = items.length > 0 ? Math.round((usedCount / items.length) * 100) : 0
 
-  /* ── MATERIAL BAR CHART DATA ────────────────────────────────
-     Build an object like { Cotton: 12.4, Polyester: 5.2, ... }
-     by looping through all items and summing CO2 per material.
-  ─────────────────────────────────────────────────────────── */
-  const materialTotals = {}
-  items.forEach(item => {
-    if (!materialTotals[item.material]) materialTotals[item.material] = 0
-    materialTotals[item.material] += item.co2
-  })
+  const materialTotals = items.reduce((totals, item) => {
+    totals[item.material] = (totals[item.material] || 0) + item.co2
+    return totals
+  }, {})
 
-  // Sort by highest CO2 first so the bars go biggest to smallest
   const materialEntries = Object.entries(materialTotals)
     .sort((a, b) => b[1] - a[1])
 
   const maxMaterialCO2 = materialEntries.length > 0 ? materialEntries[0][1] : 1
 
-  /* ── DELETE ONE ITEM ─────────────────────────────────────── */
   function deleteItem(index) {
     setItems(prev => prev.filter((_, i) => i !== index))
   }
 
-  /* ── CLEAR ALL ───────────────────────────────────────────── */
   function clearAll() {
     if (window.confirm('Remove all logged items? This cannot be undone.')) {
       setItems([])
@@ -61,7 +47,6 @@ export default function MyCloset() {
         <h2>MY CLOSET OVERVIEW</h2>
         <p>Here's a breakdown of the carbon footprint of everything you've logged.</p>
 
-        {/* ── STAT CARDS ── */}
         <div className="stats-strip">
           <div className="stat-card">
             <div className="stat-number">{items.length || '—'}</div>
@@ -81,19 +66,14 @@ export default function MyCloset() {
           </div>
         </div>
 
-        {/* ── CHARTS — only shown when there are items ── */}
         {items.length > 0 && (
           <>
-
-            {/* D3 PIE CHART — new vs. second-hand */}
             <h2>NEW VS. SECOND-HAND</h2>
             <p>How much of your closet was thrifted or bought second-hand?</p>
             <div className="chart-wrap" style={{ maxWidth: '360px' }}>
-              {/* PieChart is a React component that uses D3 internally */}
               <PieChart items={items} />
             </div>
 
-            {/* MATERIAL BAR CHART — built with plain CSS bars in React */}
             <h2>CO₂ BY MATERIAL</h2>
             <p>Which fabrics in your closet are contributing most to your total carbon footprint?</p>
             <div className="chart-wrap">
@@ -101,7 +81,6 @@ export default function MyCloset() {
                 <div key={material} className="bar-row">
                   <div className="bar-row-label">{material}</div>
                   <div className="bar-track">
-                    {/* Width is a % of the highest value, so the biggest bar = 100% */}
                     <div
                       className="bar-fill"
                       style={{ width: `${(co2 / maxMaterialCO2) * 100}%` }}
@@ -115,7 +94,6 @@ export default function MyCloset() {
           </>
         )}
 
-        {/* ── LOGGED ITEMS TABLE ── */}
         <h2>LOGGED ITEMS</h2>
 
         {items.length === 0 ? (
