@@ -1,0 +1,463 @@
+/* ===========================
+   SHOP CLEAN SAVE YOUR GREEN
+   Project 3 — Shared Styles
+   =========================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f0e8;
+  color: #1e1e1e;
+  margin: 0;
+  padding: 0;
+}
+
+a { color: #3a5c3a; }
+
+p {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+/* --- Header & Nav --- */
+header {
+  background-color: #3a5c3a;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+header h1 {
+  color: #f5f0e8;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+nav a {
+  color: #d4c5a9;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+nav a:hover { color: #ffffff; }
+
+nav a.active {
+  color: #ffffff;
+  border-bottom: 2px solid #f5f0e8;
+  padding-bottom: 2px;
+}
+
+/* --- Main --- */
+main {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+/* --- Headings --- */
+h2 {
+  color: #3a5c3a;
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid #d4c5a9;
+  padding-bottom: 0.5rem;
+}
+
+h3 { color: #5c3d2e; }
+
+/* --- Footer --- */
+footer {
+  background: #3a5c3a;
+  color: #d4c5a9;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 3rem;
+  font-size: 0.85rem;
+}
+
+/* --- Loading / error states --- */
+.loading {
+  color: #7a9e7e;
+  font-style: italic;
+}
+
+.error-msg {
+  color: #721c24;
+  background: #fdecea;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+/* --- Intro images --- */
+.intro-images {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.intro-images img {
+  width: 33%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* --- Country cards --- */
+#countries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.country-card {
+  background: white;
+  border: 1px solid #d4c5a9;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.country-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.country-card-body { padding: 0.75rem; }
+
+.country-card-body h3 {
+  margin: 0 0 0.5rem 0;
+  color: #5c3d2e;
+  font-size: 1rem;
+}
+
+.country-card-body p {
+  font-size: 0.85rem;
+  margin: 0.2rem 0;
+  line-height: 1.5;
+}
+
+/* --- Emissions list --- */
+#worldbank-section p {
+  font-size: 0.95rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #d4c5a9;
+  margin: 0;
+}
+
+#worldbank-section p:last-child { border-bottom: none; }
+
+/* --- Form --- */
+.form-section {
+  background: white;
+  border: 1px solid #d4c5a9;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.form-group { margin-bottom: 1.25rem; }
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  color: #3a5c3a;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d4c5a9;
+  border-radius: 4px;
+  background: #f5f0e8;
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #1e1e1e;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #3a5c3a;
+}
+
+.form-hint {
+  font-size: 0.78rem;
+  color: #7a9e7e;
+  margin-top: 0.25rem;
+}
+
+/* Radio toggle buttons */
+.radio-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.radio-group input[type="radio"] { display: none; }
+
+.radio-group label {
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  border: 1px solid #d4c5a9;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  font-weight: normal;
+  font-size: 0.88rem;
+  color: #1e1e1e;
+  transition: background 0.15s;
+}
+
+.radio-group input[type="radio"]:checked + label {
+  background: #3a5c3a;
+  color: #f5f0e8;
+  border-color: #3a5c3a;
+  font-weight: bold;
+}
+
+/* Button */
+.btn-submit {
+  display: inline-block;
+  background: #3a5c3a;
+  color: #f5f0e8;
+  padding: 0.65rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  text-decoration: none;
+}
+
+.btn-submit:hover {
+  background: #2e4a2e;
+  color: #f5f0e8;
+}
+
+/* Result box */
+.result-box {
+  background: #f5f0e8;
+  border: 1px solid #d4c5a9;
+  border-left: 4px solid #3a5c3a;
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  margin-top: 2rem;
+}
+
+.result-box h3 {
+  color: #3a5c3a;
+  margin: 0 0 0.75rem 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.result-total {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #3a5c3a;
+  line-height: 1;
+}
+
+.result-total span {
+  font-size: 1rem;
+  font-weight: normal;
+  color: #5c3d2e;
+  margin-left: 0.3rem;
+}
+
+/* --- My Closet stats --- */
+.stats-strip {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  flex: 1;
+  min-width: 140px;
+  background: white;
+  border: 1px solid #d4c5a9;
+  border-radius: 6px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.stat-card .stat-number {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #3a5c3a;
+  line-height: 1;
+}
+
+.stat-card .stat-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #888;
+  margin-top: 0.3rem;
+  letter-spacing: 0.04em;
+}
+
+/* Chart containers */
+.chart-wrap {
+  background: white;
+  border: 1px solid #d4c5a9;
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+}
+
+/* Items table */
+.items-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.88rem;
+}
+
+.items-table th {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  background: #3a5c3a;
+  color: #f5f0e8;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+}
+
+.items-table td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid #d4c5a9;
+  vertical-align: middle;
+}
+
+.items-table tr:last-child td { border-bottom: none; }
+.items-table tr:nth-child(even) td { background: white; }
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.badge-retail  { background: #fdecea; color: #721c24; }
+.badge-used    { background: #e6f0e6; color: #3a5c3a; }
+.co2-value     { font-weight: bold; color: #3a5c3a; }
+
+.btn-danger {
+  background: none;
+  border: 1px solid #721c24;
+  color: #721c24;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 0.88rem;
+}
+
+.btn-danger:hover { background: #fdecea; }
+
+.secondhand-note {
+  background: #e6f0e6;
+  border-left: 4px solid #3a5c3a;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  margin-top: 1rem;
+  font-size: 0.88rem;
+  color: #2e4a2e;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  .intro-images { flex-direction: column; }
+  .intro-images img { width: 100%; }
+  header { flex-direction: column; text-align: center; }
+  nav a { margin: 0 0.5rem; }
+  .stats-strip { flex-direction: column; }
+  .items-table { font-size: 0.78rem; }
+}
+
+.chart-wrap {
+  background: white;
+  border: 1px solid #d4c5a9;
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+}
+
+.btn-danger {
+  background: none;
+  border: 1px solid #721c24;
+  color: #721c24;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 0.88rem;
+}
+
+.btn-danger:hover { background: #fdecea; }
+
+.secondhand-note {
+  background: #e6f0e6;
+  border-left: 4px solid #3a5c3a;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  margin-top: 1rem;
+  font-size: 0.88rem;
+  color: #2e4a2e;
+}
+
+/* bar chart rows */
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.bar-row-label {
+  width: 120px;
+  font-size: 0.82rem;
+  color: #1e1e1e;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.bar-track {
+  flex: 1;
+  height: 20px;
+  background: #e8e2d6;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: #3a5c3a;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.bar-value {
+  width: 55px;
+  font-size: 0.82rem;
+  color: #5c3d2e;
+  font-weight: bold;
+  flex-shrink: 0;
+}
