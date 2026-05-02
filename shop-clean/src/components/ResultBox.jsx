@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom'
-import { IconLeaf } from './PageMedia.jsx'
 
 export default function ResultBox({ co2, purchaseType, itemData }) {
   const navigate = useNavigate()
@@ -14,12 +13,7 @@ export default function ResultBox({ co2, purchaseType, itemData }) {
 
   return (
     <div className="result-box">
-      <div className="result-box__title-row">
-        <span className="result-box__title-icon" aria-hidden="true">
-          <IconLeaf size={22} />
-        </span>
-        <h3>Carbon Footprint Result</h3>
-      </div>
+      <h3>Carbon Footprint Result</h3>
 
       <div className="result-total">
         {co2} <span>kg CO₂e</span>
@@ -45,8 +39,7 @@ export default function ResultBox({ co2, purchaseType, itemData }) {
       )}
 
       <p style={{ marginTop: '1.25rem', marginBottom: 0 }}>
-        <button type="button" className="btn-submit btn-with-icon" onClick={saveItem}>
-          <IconLeaf size={18} aria-hidden="true" />
+        <button className="btn-submit" onClick={saveItem}>
           Save to My Closet →
         </button>
       </p>

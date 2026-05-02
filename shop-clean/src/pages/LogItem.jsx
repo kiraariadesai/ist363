@@ -3,17 +3,6 @@ import Header from '../components/Header.jsx'
 import Footer from '../components/Footer.jsx'
 import ResultBox from '../components/ResultBox.jsx'
 import { calculateCarbon, MATERIALS, ITEM_TYPES } from '../data/carbonData.js'
-import {
-  IllustrationLogHero,
-  IconTag,
-  IconLayers,
-  IconFabric,
-  IconScale,
-  IconHanger,
-  IconStore,
-  IconRecycle,
-  IconLeaf,
-} from '../components/PageMedia.jsx'
 
 export default function LogItem() {
   const [name, setName] = useState('')
@@ -55,33 +44,16 @@ export default function LogItem() {
 
       <main id="content">
 
-        <div className="page-hero">
-          <div className="page-hero__figure">
-            <IllustrationLogHero />
-          </div>
-          <div className="page-hero__copy">
-            <h2 className="section-heading">
-              <span className="section-heading__icon" aria-hidden="true">
-                <IconHanger size={26} />
-              </span>
-              LOG A NEW ITEM
-            </h2>
-            <p>
-              Enter your item&apos;s details below. The calculator only needs three things —
-              material, weight, and whether it&apos;s new or second-hand.
-            </p>
-          </div>
-        </div>
+        <h2>LOG A NEW ITEM</h2>
+        <p>
+          Enter your item's details below. The calculator only needs three things —
+          material, weight, and whether it's new or second-hand.
+        </p>
 
         <div className="form-section">
           <div className="form-group">
-            <label htmlFor="item-name" className="form-label-row">
-              <span className="form-label-row__icon" aria-hidden="true">
-                <IconTag size={18} />
-              </span>
-              <span>
-                Item Name <span style={{ fontWeight: 'normal', color: '#888' }}>(optional)</span>
-              </span>
+            <label htmlFor="item-name">
+              Item Name <span style={{ fontWeight: 'normal', color: '#888' }}>(optional)</span>
             </label>
             <input
               type="text"
@@ -93,13 +65,8 @@ export default function LogItem() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="item-type" className="form-label-row">
-              <span className="form-label-row__icon" aria-hidden="true">
-                <IconLayers size={18} />
-              </span>
-              <span>
-                Item Type <span style={{ fontWeight: 'normal', color: '#888' }}>(optional)</span>
-              </span>
+            <label htmlFor="item-type">
+              Item Type <span style={{ fontWeight: 'normal', color: '#888' }}>(optional)</span>
             </label>
             <select id="item-type" value={type} onChange={e => setType(e.target.value)}>
               {ITEM_TYPES.map(t => <option key={t}>{t}</option>)}
@@ -107,12 +74,7 @@ export default function LogItem() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="material" className="form-label-row">
-              <span className="form-label-row__icon" aria-hidden="true">
-                <IconFabric size={18} />
-              </span>
-              <span>Material *</span>
-            </label>
+            <label htmlFor="material">Material *</label>
             <select id="material" value={material} onChange={e => setMaterial(e.target.value)}>
               <option value="">Select material...</option>
               {MATERIALS.map(m => <option key={m}>{m}</option>)}
@@ -121,12 +83,7 @@ export default function LogItem() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="item-weight" className="form-label-row">
-              <span className="form-label-row__icon" aria-hidden="true">
-                <IconScale size={18} />
-              </span>
-              <span>Approx. Weight (grams) *</span>
-            </label>
+            <label htmlFor="item-weight">Approx. Weight (grams) *</label>
             <input
               type="number"
               id="item-weight"
@@ -145,32 +102,21 @@ export default function LogItem() {
           </div>
 
           <div className="form-group">
-            <label className="form-label-row">
-              <span className="form-label-row__icon" aria-hidden="true">
-                <IconHanger size={18} />
-              </span>
-              <span>Purchase Type *</span>
-            </label>
+            <label>Purchase Type *</label>
             <div className="radio-group">
               <input
                 type="radio" id="type-new" name="purchase-type"
                 value="new" checked={purchaseType === 'new'}
                 onChange={() => setPurchaseType('new')}
               />
-              <label htmlFor="type-new">
-                <IconStore size={16} className="radio-label__icon" aria-hidden="true" />
-                New / Retail
-              </label>
+              <label htmlFor="type-new">New / Retail</label>
 
               <input
                 type="radio" id="type-used" name="purchase-type"
                 value="used" checked={purchaseType === 'used'}
                 onChange={() => setPurchaseType('used')}
               />
-              <label htmlFor="type-used">
-                <IconRecycle size={16} className="radio-label__icon" aria-hidden="true" />
-                Second-hand / Thrifted
-              </label>
+              <label htmlFor="type-used">Second-hand / Thrifted</label>
             </div>
             <p className="form-hint">
               Second-hand items have a much lower footprint — the fabric already exists,
@@ -178,8 +124,7 @@ export default function LogItem() {
             </p>
           </div>
 
-          <button type="button" className="btn-submit btn-with-icon" onClick={handleCalculate}>
-            <IconLeaf size={18} aria-hidden="true" />
+          <button className="btn-submit" onClick={handleCalculate}>
             Calculate Carbon Footprint →
           </button>
         </div>

@@ -2,19 +2,6 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../components/Header.jsx'
 import Footer from '../components/Footer.jsx'
-import PieChart from '../components/PieChart.jsx'
-import {
-  IllustrationClosetHero,
-  IconCloset,
-  IconShirt,
-  IconLeaf,
-  IconBars,
-  IconRecycle,
-  IconPie,
-  IconFabric,
-  IconHanger,
-  IconPlus,
-} from '../components/PageMedia.jsx'
 
 export default function MyCloset() {
   const [items, setItems] = useState(() => {
@@ -56,47 +43,23 @@ export default function MyCloset() {
 
       <main id="content">
 
-        <div className="page-hero">
-          <div className="page-hero__figure">
-            <IllustrationClosetHero />
-          </div>
-          <div className="page-hero__copy">
-            <h2 className="section-heading">
-              <span className="section-heading__icon" aria-hidden="true">
-                <IconCloset size={26} />
-              </span>
-              MY CLOSET OVERVIEW
-            </h2>
-            <p>Here&apos;s a breakdown of the carbon footprint of everything you&apos;ve logged.</p>
-          </div>
-        </div>
+        <h2>MY CLOSET OVERVIEW</h2>
+        <p>Here's a breakdown of the carbon footprint of everything you've logged.</p>
 
         <div className="stats-strip">
           <div className="stat-card">
-            <div className="stat-card__icon-wrap" aria-hidden="true">
-              <IconShirt size={22} />
-            </div>
             <div className="stat-number">{items.length || '—'}</div>
             <div className="stat-label">Items logged</div>
           </div>
           <div className="stat-card">
-            <div className="stat-card__icon-wrap" aria-hidden="true">
-              <IconLeaf size={22} />
-            </div>
             <div className="stat-number">{items.length > 0 ? totalCO2.toFixed(1) : '—'}</div>
             <div className="stat-label">kg CO₂e total</div>
           </div>
           <div className="stat-card">
-            <div className="stat-card__icon-wrap" aria-hidden="true">
-              <IconBars size={22} />
-            </div>
             <div className="stat-number">{items.length > 0 ? avgCO2.toFixed(1) : '—'}</div>
             <div className="stat-label">kg CO₂e per item</div>
           </div>
           <div className="stat-card">
-            <div className="stat-card__icon-wrap" aria-hidden="true">
-              <IconRecycle size={22} />
-            </div>
             <div className="stat-number">{items.length > 0 ? usedPct + '%' : '—'}</div>
             <div className="stat-label">Second-hand items</div>
           </div>
@@ -104,33 +67,16 @@ export default function MyCloset() {
 
         {items.length > 0 && (
           <>
-            <h2 className="section-heading">
-              <span className="section-heading__icon" aria-hidden="true">
-                <IconPie size={24} />
-              </span>
-              NEW VS. SECOND-HAND
-            </h2>
+            <h2>NEW VS. SECOND-HAND</h2>
             <p>How much of your closet was thrifted or bought second-hand?</p>
-            <div className="chart-wrap" style={{ maxWidth: '360px' }}>
-              <PieChart items={items} />
-            </div>
+            <p className="loading">Visuals for this section are coming soon.</p>
 
-            <h2 className="section-heading">
-              <span className="section-heading__icon" aria-hidden="true">
-                <IconFabric size={24} />
-              </span>
-              CO₂ BY MATERIAL
-            </h2>
+            <h2>CO₂ BY MATERIAL</h2>
             <p>Which fabrics in your closet are contributing most to your total carbon footprint?</p>
             <div className="chart-wrap">
               {materialEntries.map(([material, co2]) => (
                 <div key={material} className="bar-row">
-                  <div className="bar-row-label">
-                    <span className="bar-row-label__icon" aria-hidden="true">
-                      <IconFabric size={14} />
-                    </span>
-                    {material}
-                  </div>
+                  <div className="bar-row-label">{material}</div>
                   <div className="bar-track">
                     <div
                       className="bar-fill"
@@ -145,22 +91,11 @@ export default function MyCloset() {
           </>
         )}
 
-        <h2 className="section-heading">
-          <span className="section-heading__icon" aria-hidden="true">
-            <IconHanger size={24} />
-          </span>
-          LOGGED ITEMS
-        </h2>
+        <h2>LOGGED ITEMS</h2>
 
         {items.length === 0 ? (
-          <p className="closet-empty-msg">
-            <span className="closet-empty-msg__icon" aria-hidden="true">
-              <IconHanger size={28} />
-            </span>
-            <span>
-              No items logged yet.{' '}
-              <Link to="/log-item">Log your first item!</Link>
-            </span>
+          <p className="loading">
+            No items logged yet. <Link to="/log-item">Log your first item!</Link>
           </p>
         ) : (
           <table className="items-table">
@@ -190,7 +125,6 @@ export default function MyCloset() {
                   <td style={{ color: '#888', fontSize: '0.8rem' }}>{item.date}</td>
                   <td>
                     <button
-                      type="button"
                       onClick={() => deleteItem(index)}
                       style={{
                         background: 'none', border: 'none', color: '#721c24',
@@ -207,12 +141,9 @@ export default function MyCloset() {
         )}
 
         <p style={{ marginTop: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
-          <Link to="/log-item" className="btn-submit btn-with-icon">
-            <IconPlus size={18} aria-hidden="true" />
-            Log Another Item
-          </Link>
+          <Link to="/log-item" className="btn-submit">+ Log Another Item</Link>
           {items.length > 0 && (
-            <button type="button" className="btn-danger" onClick={clearAll}>Clear All Items</button>
+            <button className="btn-danger" onClick={clearAll}>Clear All Items</button>
           )}
         </p>
 
